@@ -9,6 +9,20 @@
 <body>
     <div class="container" >
         <h1 class="text-center">Quản Lý Sản Phẩm</h1>
+        <form>
+            <div class="form-group">
+                <div>
+                    <input placeholder="Nhập từ khóa tìm kiếm" name="keyword" class="from-control">
+                </div>
+                <div>
+                    <input placeholder="Giá bắt đầu" name="from_price" class="from-control">
+                    <input placeholder="Giá kết thúc" name="to_price" class="from-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-danger" value="Tìm kiếm" />
+            </div>
+        </form>
         <table class="table">
             <tr>
                 <th></th>
@@ -22,7 +36,9 @@
                     <img width="120" alt="{{ p.name }}" src="{{ url_for('static', filename=p.image) }}" />
                 </td>
                 <td>{{ p.id }}</td>
-                <td>{{ p.name }}</td>
+                <td>
+                    <a href="{{ url_for('product_detail',product_id=p.id) }}">{{ p.name }}</a>
+                </td>
                 <td>{{ "{:,.1f}".format(p.price) }} VNĐ</td>
             </tr>
             {% endfor %}

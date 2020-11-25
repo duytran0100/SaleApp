@@ -1,4 +1,5 @@
-import json
+import json, hashlib
+from saleapp.models import UserRole,User
 
 def read_data(path="data/categories.json"):
     with open(path,encoding="utf-8") as f:
@@ -27,3 +28,14 @@ def get_product_by_id(product_id):
     for p in products:
         if p["id"] == product_id:
             return p
+
+def check_login(username,password,role=UserRole.ADMIN):
+    password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
+
+    user = User.query.filter(User.username == username, User.password == password,User.user_role == role).first()
+
+    return user
+
+
+def get_user_by_id(user_id):
+    return User.query.get(user_id)

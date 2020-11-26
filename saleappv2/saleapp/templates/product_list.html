@@ -11,13 +11,21 @@
         <h1 class="text-center">Quản Lý Sản Phẩm</h1>
         <form>
             <div class="form-group">
-                <div>
-                    <input placeholder="Nhập từ khóa tìm kiếm" name="keyword" class="from-control">
-                </div>
-                <div>
-                    <input placeholder="Giá bắt đầu" name="from_price" class="from-control">
-                    <input placeholder="Giá kết thúc" name="to_price" class="from-control">
-                </div>
+                    <input type="text" placeholder="Nhập từ khóa tìm kiếm" name="keyword" class="from-control">
+            </div>
+            <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="number"
+                               name="from_price"
+                               class="form-control"
+                               placeholder="Nhập giá bắt đầu..." />
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <input type="number"
+                               name="to_price"
+                               class="form-control"
+                               placeholder="Nhập giá kết thúc..." />
+                    </div>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-danger" value="Tìm kiếm" />
